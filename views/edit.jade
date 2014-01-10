@@ -7,7 +7,7 @@ block content
 	each ticket in tickets
 		span
 			if (ticket._id == current)
-				form(action="/create", method="post", accept-charset="utf-8")
+				form(action="/update/" + ticket._id, method="post", accept-charset="utf-8")
 					div.input-group
 						label(for='title')
 							input(id='title', type='text', placeholder='Ticket title...', name='title', value=ticket.title)
