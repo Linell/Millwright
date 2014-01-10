@@ -1,0 +1,14 @@
+extends layout
+
+block content
+	h1= title
+	p Welcome to #{title}
+
+	div.container
+		div.row
+			each ticket in tickets
+				li #{ticket.content} <a href="/edit/#{ticket._id}">Edit</a> <a href="/destroy/#{ticket._id}">Delete</a>
+		div.row
+			form(action="/create", method="post", accept-charset="utf-8")
+				| Content
+				input(type="text", name="content")

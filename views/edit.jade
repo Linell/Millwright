@@ -1,0 +1,11 @@
+extends layout
+
+block content
+	h1= title
+	p Welcome to #{title}
+
+	each ticket in tickets
+		span
+			if (ticket._id == current)
+				form(action="/update/" + ticket._id, method="post", accept-charset="utf-8")
+					input(type="text", name="content", value=ticket.content)
