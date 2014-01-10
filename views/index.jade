@@ -13,6 +13,9 @@ block content
 						th Ticket Title
 						th Content
 						th Urgency
+						th Department
+						th Assigned
+						th Status
 						th 
 				tbody
 					each ticket in tickets
@@ -20,6 +23,9 @@ block content
 							td #{ticket.title} 
 							td #{ticket.content}
 							td #{ticket.urgency}
+							td #{ticket.department}
+							td #{ticket.assigned}
+							td #{ticket.status}
 							td <a href="/edit/#{ticket._id}">Edit</a> <a href="/destroy/#{ticket._id}">Delete</a>
 		div.row
 			h3 Create New Ticket
@@ -33,8 +39,33 @@ block content
 				div.input-group
 					label(for='urgency')
 						select(name='urgency')
-							option(value="low") Low
-							option(value="medium") Medium 
-							option(value="high") High 
-				dib.input-group
+							option(value="Low") Low
+							option(value="Medium") Medium 
+							option(value="High") High 
+				div.input-group
+					label(for='department')
+						select(name='department')
+							option(value="General") General
+							option(value="Electrical") Electrical 
+							option(value="Welding") Welding
+				div.input-group
+					label(for='assigned')
+						input(id='assigned', type='text', placeholder='Assigned to...', name='assigned')
+				div.input-group
+					label(for='status')
+						select(name='status')
+							option(value="Open") Open
+							option(value="Closed") Closed 
+				div.input-group
 					input(type='submit', value='Add Ticket')
+
+
+
+
+
+
+
+
+
+
+

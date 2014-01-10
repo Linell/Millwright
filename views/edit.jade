@@ -17,12 +17,83 @@ block content
 								| #{ticket.content}
 					div.input-group
 						label(for='urgency')
-							- low = ('low'==ticket.urgency) ? 'selected' : null;
-							- medium = ('medium'==ticket.urgency) ? 'selected' : null;
-							- high = ('high'==ticket.urgency) ? 'selected' : null;
+							- low = ('Low'==ticket.urgency) ? 'selected' : null;
+							- medium = ('Medium'==ticket.urgency) ? 'selected' : null;
+							- high = ('High'==ticket.urgency) ? 'selected' : null;
 							select(name='urgency', value=ticket.urgency)
-								option(value="low", selected=low) Low
-								option(value="medium", selected=medium) Medium 
-								option(value="high", selected=high) High 
-					dib.input-group
+								option(value="Low", selected=low) Low
+								option(value="Medium", selected=medium) Medium 
+								option(value="High", selected=high) High 
+					div.input-group
+						label(for='department')
+							- general = ('General'==ticket.department) ? 'selected' : null;
+							- electrical = ('Electrical'==ticket.department) ? 'selected' : null;
+							- welding = ('Welding'==ticket.department) ? 'selected' : null;
+							select(name='department')
+								option(value="General", selected=general) General
+								option(value="Electrical", selected=electrical) Electrical 
+								option(value="Welding", selected=welding) Welding
+					div.input-group
+						label(for='assigned')
+							input(id='assigned', type='text', value=ticket.assigned, name='assigned')
+					div.input-group
+						label(for='status')
+							- open = ('Open'==ticket.open) ? 'selected' : null;
+							- closed = ('Closed'==ticket.closed) ? 'selected' : null;
+							select(name='status')
+								option(value="Open", selected=open) Open
+								option(value="Closed", selected=closed) Closed 
+					div.input-group
 						input(type='submit', value='Edit Ticket')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

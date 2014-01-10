@@ -6,6 +6,9 @@ var Ticket = new Schema ({
 	title: String,
 	content : String,
 	urgency: String,
+	department: String,
+	assigned: String,
+	status: String,
 	updated : Date
 });
 

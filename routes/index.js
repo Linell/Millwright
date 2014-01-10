@@ -19,6 +19,9 @@ exports.create = function(req, res){
 		title : req.body.title,
 		content : req.body.content,
 		urgency : req.body.urgency,
+		department : req.body.department,
+		assigned : req.body.assigned,
+		status : req.body.status,
 		updated : Date.now()
 	}).save(function(err, ticket, count) {
 		res.redirect('/');
@@ -48,6 +51,9 @@ exports.update = function(req, res){
 		ticket.title = req.body.title;
 		ticket.content = req.body.content;
 		ticket.urgency = req.body.urgency;
+		ticket.department = req.body.department;
+		ticket.assigned = req.body.assigned;
+		ticket.status = req.body.status;
 		ticket.updated = Date.now();
 		ticket.save(function (err, ticket, count) {
 			res.redirect('/');
