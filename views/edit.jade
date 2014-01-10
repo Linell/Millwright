@@ -2,10 +2,27 @@ extends layout
 
 block content
 	h1= title
-	p Welcome to #{title}
+	h3 Create New Ticket
 
 	each ticket in tickets
 		span
 			if (ticket._id == current)
-				form(action="/update/" + ticket._id, method="post", accept-charset="utf-8")
-					input(type="text", name="content", value=ticket.content)
+				form(action="/create", method="post", accept-charset="utf-8")
+					div.input-group
+						label(for='title')
+							input(id='title', type='text', placeholder='Ticket title...', name='title', value=ticket.title)
+					div.input-group
+						label(for='content')
+							textarea(name='content')
+								| #{ticket.content}
+					div.input-group
+						label(for='urgency')
+							- low = ('low'==ticket.urgency) ? 'selected' : null;
+							- medium = ('medium'==ticket.urgency) ? 'selected' : null;
+							- high = ('high'==ticket.urgency) ? 'selected' : null;
+							select(name='urgency', value=ticket.urgency)
+								option(value="low", selected=low) Low
+								option(value="medium", selected=medium) Medium 
+								option(value="high", selected=high) High 
+					dib.input-group
+						input(type='submit', value='Edit Ticket')

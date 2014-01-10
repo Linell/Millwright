@@ -12,7 +12,9 @@ exports.index = function(req, res){
 
 exports.create = function(req, res){
 	new Ticket({
+		title : req.body.title,
 		content : req.body.content,
+		urgency : req.body.urgency,
 		updated : Date.now()
 	}).save(function(err, ticket, count) {
 		res.redirect('/');
@@ -39,7 +41,9 @@ exports.edit = function(req, res){
 
 exports.update = function(req, res){
 	Ticket.findById(req.params.id, function(err, ticket){
+		ticket.title = req.body.title;
 		ticket.content = req.body.content;
+		ticket.urgency = req.body.urgency;
 		ticket.updated = Date.now();
 		ticket.save(function (err, ticket, count) {
 			res.redirect('/');

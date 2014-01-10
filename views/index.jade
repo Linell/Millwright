@@ -6,9 +6,35 @@ block content
 
 	div.container
 		div.row
-			each ticket in tickets
-				li #{ticket.content} <a href="/edit/#{ticket._id}">Edit</a> <a href="/destroy/#{ticket._id}">Delete</a>
+			h3 Current Tickets
+			table.table.table-striped.table-responsive
+				thead
+					tr
+						th Ticket Title
+						th Content
+						th Urgency
+						th 
+				tbody
+					each ticket in tickets
+						tr
+							td #{ticket.title} 
+							td #{ticket.content}
+							td #{ticket.urgency}
+							td <a href="/edit/#{ticket._id}">Edit</a> <a href="/destroy/#{ticket._id}">Delete</a>
 		div.row
+			h3 Create New Ticket
 			form(action="/create", method="post", accept-charset="utf-8")
-				| Content
-				input(type="text", name="content")
+				div.input-group
+					label(for='title')
+						input(id='title', type='text', placeholder='Ticket title...', name='title')
+				div.input-group
+					label(for='content')
+						textarea(name='content')
+				div.input-group
+					label(for='urgency')
+						select(name='urgency')
+							option(value="low") Low
+							option(value="medium") Medium 
+							option(value="high") High 
+				dib.input-group
+					input(type='submit', value='Add Ticket')
