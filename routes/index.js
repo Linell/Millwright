@@ -10,6 +10,10 @@ exports.index = function(req, res){
 	});
 };
 
+exports.about = function(req, res){
+	res.render('about', {title: 'About'});
+};
+
 exports.create = function(req, res){
 	new Ticket({
 		title : req.body.title,
