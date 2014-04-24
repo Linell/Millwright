@@ -39,33 +39,33 @@ block content
 					h4#myModalLabel.modal-title New Ticket
 					.modal-body
 							form(action="/create", method="post", accept-charset="utf-8")
-								div.input-group
+								div.form-group
 									label(for='title') Title
 									input(id='title', type='text', placeholder='Ticket title...', name='title')
-								div.input-group
+								div.form-group
 									label(for='content') Content
 									textarea(name='content')
-								div.input-group
+								div.form-group
 									label(for='urgency') Urgence
 									select(name='urgency')
 										option(value="Low") Low
 										option(value="Medium") Medium 
 										option(value="High") High 
-								div.input-group
+								div.form-group
 									label(for='department') Department
 									select(name='department')
 										option(value="General") General
 										option(value="Electrical") Electrical 
 										option(value="Welding") Welding
-								div.input-group
+								div.form-group
 									label(for='assigned') Assigned To
 									input(id='assigned', type='text', placeholder='Assigned to...', name='assigned')
-								div.input-group
+								div.form-group
 									label(for='status') Status
 									select(name='status')
 										option(value="Open") Open
 										option(value="Closed") Closed 
-								div.input-group
+								div.form-group
 									input(type='submit', value='Add Ticket')
 					.modal-footer
 						button.btn.btn-default(type='button', data-dismiss='modal') Close
