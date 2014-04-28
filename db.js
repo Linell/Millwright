@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 var Ticket = new Schema ({
 	user_id : String,
 	title: String,
+	description: String,
 	content : String,
 	urgency: String,
 	department: String,

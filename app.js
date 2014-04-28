@@ -35,6 +35,7 @@ app.post('/create', routes.create);
 app.get('/destroy/:id', routes.destroy);
 app.get('/edit/:id', routes.edit);
 app.post('/update/:id', routes.update);
+app.get('/details/:id', routes.details);
 app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){

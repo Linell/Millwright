@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	h1= ticket.title
+	h4= ticket.description
+	p
+		| Ticket status of #{ticket.status}
+	p
+		| #{ticket.urgency} urgency ticket.
+	p
+		| #{ticket.department} department.
+	p
+		| Currently assigned to #{ticket.assigned}
+	p
+		| #{ticket.content}
+	//- h3 Create New Ticket

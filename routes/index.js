@@ -17,6 +17,7 @@ exports.about = function(req, res){
 exports.create = function(req, res){
 	new Ticket({
 		title : req.body.title,
+		description: req.body.description,
 		content : req.body.content,
 		urgency : req.body.urgency,
 		department : req.body.department,
@@ -61,48 +62,10 @@ exports.update = function(req, res){
 	});
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+exports.details = function(req, res){
+	Ticket.findById(req.params.id, function(err, ticket) {
+		res.render('details', {
+			ticket: ticket
+		});
+	});
+};

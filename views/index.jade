@@ -11,7 +11,7 @@ block content
 				thead
 					tr
 						th Ticket Title
-						th Content
+						th Description
 						th Urgency
 						th Department
 						th Assigned
@@ -21,12 +21,20 @@ block content
 					each ticket in tickets
 						tr
 							td #{ticket.title} 
-							td #{ticket.content}
+							td #{ticket.description}
 							td #{ticket.urgency}
 							td #{ticket.department}
 							td #{ticket.assigned}
 							td #{ticket.status}
-							td <a href="/edit/#{ticket._id}">Edit</a> <a href="/destroy/#{ticket._id}">Delete</a>
+							td
+								div.btn-group.btn-group-xs
+									a(href="/details/#{ticket._id}")
+										button.btn.btn-info(type='button') Details
+									a(href="/edit/#{ticket._id}")
+										button.btn.btn-warning(type='button') Edit
+									a(href="/destroy/#{ticket._id}")
+										button.btn.btn-danger(type='button') Delete
+									//- <a href="/details/#{ticket._id}">Details</a> <a href="/edit/#{ticket._id}">Edit</a> <a href="/destroy/#{ticket._id}">Delete</a>
 		div.row
 			button.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#myModal')
 				| New Ticket
@@ -42,6 +50,9 @@ block content
 								div.form-group
 									label(for='title') Title
 									input(id='title', type='text', placeholder='Ticket title...', name='title')
+								div.form-group
+									label(for='description') Description
+									input(id='description', type='text', placeholder='Description...', name='description', maxlength='95')
 								div.form-group
 									label(for='content') Content
 									textarea(name='content')
