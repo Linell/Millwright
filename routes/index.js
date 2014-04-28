@@ -65,6 +65,7 @@ exports.update = function(req, res){
 exports.details = function(req, res){
 	Ticket.findById(req.params.id, function(err, ticket) {
 		res.render('details', {
+			title: 'Ticket - ' + ticket.title,
 			ticket: ticket
 		});
 	});
