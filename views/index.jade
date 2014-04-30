@@ -7,7 +7,7 @@ block content
 	div.container
 		div.row
 			h3 Current Tickets
-			table.table.table-striped.table-responsive
+			table.table.table-striped.table-responsive#myTable
 				thead
 					tr
 						th Ticket Title
@@ -80,6 +80,8 @@ block content
 									input(type='submit', value='Add Ticket')
 					.modal-footer
 						button.btn.btn-default(type='button', data-dismiss='modal') Close
+	script
+		| $(function() { $('#myTable').tablesorter(); });
 
 
 
